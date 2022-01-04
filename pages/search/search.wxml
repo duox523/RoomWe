@@ -1,0 +1,36 @@
+<!-- 热门搜索 -->
+<view class="hmly-hot">
+	<!-- 提示标题 -->
+	<view class="hmly-title">
+
+		<view class="title-text">Search Your Roommates</view>
+	</view>
+	<view class="hmly-hot-content">
+		<view class="hmly-hot-items" wx:for="{{hotData}}" wx:key="index">
+			<view class="hmly-item-left">
+				<view class="{{index < 3 ? 'text-red' : ''}}">{{index + 1}}</view>
+				<view class="hmly-item-title text-black">{{item.title}}</view>
+			</view>
+			<text class="{{item.icon}} {{item.color}}"></text>
+		</view>
+	</view>
+</view>
+<view class="container">
+  <view class="list">
+    <view class="search-cat" wx:for="{{searchList}}" wx:for-item="p" wx:for-index="pIndex" wx:key="">
+      <view class="search-title">{{p.screenKey}}</view>
+      <view class="search-items">
+        <view bindtap="onChange" wx:for="{{p.screenValue}}" wx:for-item="g" data-parent-index="{{ pIndex }}" data-index="{{ index }}"
+          data-item="{{ p }}" class="item {{ g.checked ? 'active' : '' }}" wx:key=""  >
+          {{g.value}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="search-bottom">
+    <view class="cancel" bindtap="doCancel">Cancel</view>
+    <view class="confirm" bindtap="gotoRecommend">Confirm</view>
+
+</view>
+</view>
+<view class="whitspace">whitespace</view>
